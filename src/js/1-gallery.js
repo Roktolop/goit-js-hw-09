@@ -1,5 +1,9 @@
 'use strict';
 
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
+
 const images = [
     {
       preview:
@@ -85,26 +89,13 @@ const markup = images
 
 galleryList.innerHTML = markup;
 
-//add listener
+// add listener
 
-// galleryList.addEventListener("click", openModal);
-
-// function openModal(event) {
-//     event.preventDefault();
-
-//     const clickImg = event.target;
-
-//     if (clickImg.nodeName !== 'IMG') {
-//         return;
-//     } 
-//     console.log(clickImg.dataset.source);
-
-//     const largeImageURL = clickImg.dataset.source;
-
-//    const instance = basicLightbox.create(`<img src="${largeImageURL}" alt="${clickImg.alt}" />`);
-//     instance.show();
-    
-// }
+new SimpleLightbox('.gallery a', { 
+  captionData: 'alt',
+  captionPosition: 'bottom',
+  captionDeley: 250,
+});
 
 
 
