@@ -92,9 +92,9 @@ galleryList.innerHTML = markup;
 // add listener
 
 new SimpleLightbox('.gallery a', { 
-  captionData: 'alt',
+  captionsData: 'alt',
   captionPosition: 'bottom',
-  captionDeley: 250,
+  captionDelay: 250,
 });
 
 
