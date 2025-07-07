@@ -1,9 +1,6 @@
 'use strict';
 
-const formData = {
-    email: savedValues.email,
-    message: savedValues.message 
-};
+
 
 const LS_Key = "feedback-form-state";
 const form = document.querySelector('.feedback-form');
@@ -11,6 +8,11 @@ const inputEmail = document.querySelector('input[type="email"]');
 const textarea = document.querySelector('textarea[name="message"]');
 
 const savedValues = JSON.parse(localStorage.getItem(LS_Key)) || { email: "", message: "" };
+
+const formData = {
+    email: savedValues.email,
+    message: savedValues.message 
+};
 
 inputEmail.value = savedValues.email || "";
 textarea.value = savedValues.message || "";
