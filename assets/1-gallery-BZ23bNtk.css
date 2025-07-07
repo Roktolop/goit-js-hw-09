@@ -1,0 +1,1 @@
+.gallery{display:flex;flex-wrap:wrap;gap:24px;flex-basis:((100% - 48px) / 3)}
