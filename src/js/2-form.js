@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 const LS_Key = "feedback-form-state";
 const form = document.querySelector('.feedback-form');
 const inputEmail = document.querySelector('input[type="email"]');
@@ -17,13 +15,13 @@ const formData = {
 inputEmail.value = savedValues.email || "";
 textarea.value = savedValues.message || "";
 
-function onEmailInput(event) {
-    formData.email = event.target.value;
-    saveFormData();
-}
-
-function onMessageInput(event) {
-    formData.message = event.target.value;
+function handleFormInput(event) {
+    const target = event.target;
+    if (target.name === "email") {
+        formData.email = target.value;
+    } else if (target.name === "message") {
+        formData.message = target.value;
+    }
     saveFormData();
 }
 
@@ -39,12 +37,13 @@ function onFormSubmit(event) {
         return;
     }
 
+    console.log(formData);
+
     localStorage.removeItem(LS_Key);
     form.reset();
     formData.email = "";
     formData.message = "";
 }
 
-inputEmail.addEventListener("input", onEmailInput);
-textarea.addEventListener("input", onMessageInput);
+form.addEventListener("input", handleFormInput);
 form.addEventListener("submit", onFormSubmit);
